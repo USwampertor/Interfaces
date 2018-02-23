@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Media;
 
 namespace Interfaces_proyecto
 {
@@ -19,6 +20,7 @@ namespace Interfaces_proyecto
             InitializeComponent();
         }
 
+<<<<<<< HEAD
         private void Form1_Load(object sender, EventArgs e)
         {
             // Create an instance of the ListBox.
@@ -52,6 +54,57 @@ namespace Interfaces_proyecto
             System.Diagnostics.Debug.WriteLine(listBox1.SelectedItems[1].ToString());
             // Display the index of the first selected item in the ListBox.
             System.Diagnostics.Debug.WriteLine(listBox1.SelectedIndices[0].ToString());
+=======
+        private void button1_Click(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Beep.Play();
+
+            Color BackColor = Color.Green;
+        }
+        private void button2_Click(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Exclamation.Play();
+            
+            //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            //simpleSound.Play();
+
+            Color BackColor = Color.Red;
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Asterisk.Play();
+
+            //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            //simpleSound.Play();
+
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Hand.Play();
+
+            //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            //simpleSound.Play();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            System.Media.SystemSounds.Question.Play();
+
+            //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
+            //simpleSound.Play();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+>>>>>>> 479d609a78c31007ad20e6212c3b18c21ca4ff84
         }
     }
 }
