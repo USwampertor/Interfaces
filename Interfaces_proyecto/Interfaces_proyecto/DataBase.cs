@@ -63,3 +63,16 @@ namespace Interfaces_proyecto
 
     }
 }
+
+
+
+/*
+    --->Interfaz: textbox metes nombres//textbox muestra todos los nombres//boton Sortear//2,3,4,5,N//Guarda-Cierra
+    --->Abstractos: recibe los nombres y los guarda en la lista//genera los equipos//guardar equipos
+                    Abstracto DataCapsule->Lista ->Equipo fetchdata(); fetchdata(){list.add string}; fetchdata(){equipo.add}
+                    clase de equipos clase form lista
+    --->Basededatos: recibo lista de nombres y lo guardo
+     
+     
+     
+     */
