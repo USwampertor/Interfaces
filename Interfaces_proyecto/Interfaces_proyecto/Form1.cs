@@ -13,7 +13,7 @@ namespace Interfaces_proyecto
 {
     public partial class Form1 : Form
     {
-        Data vengo_a_valer_verga = new Data();
+        Data dataHandler = new Data();
 
         public Form1()
         {
@@ -32,7 +32,7 @@ namespace Interfaces_proyecto
             listBox1.Items.Add(textBox1.Text);
             MessageBox.Show(textBox1.Text + " agregado.", "Agregar");
             textBox1.Clear();
-            vengo_a_valer_verga.DataFetch(listBox1);
+            dataHandler.DataFetch(listBox1);
         }
         private void button2_Click(object sender, EventArgs e)
         {
@@ -55,7 +55,7 @@ namespace Interfaces_proyecto
                 }
             }
             textBox1.Clear();
-            vengo_a_valer_verga.DataFetch(listBox1);
+            dataHandler.DataFetch(listBox1);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -70,12 +70,12 @@ namespace Interfaces_proyecto
             {
                 listBox2.Visible = true;
                 listBox1.Visible = false;
-                for (int i = 0; i < vengo_a_valer_verga.GetTeams().Count; i++)
+                for (int i = 0; i < dataHandler.GetTeams().Count; i++)
                 {
                     listBox2.Items.Add("Equipo " + (i + 1));
-                    for(int j=0;j<vengo_a_valer_verga.GetTeams()[i].Team.Count;i++)
+                    for (int j = 0; j < dataHandler.GetTeams()[i].Team.Count; j++)
                     {
-                        listBox2.Items.Add(vengo_a_valer_verga.GetTeams()[i].Team[j]);
+                        listBox2.Items.Add(dataHandler.GetTeams()[i].Team[j]);
                     }
                 }
             }
@@ -107,7 +107,7 @@ namespace Interfaces_proyecto
             }
             else
             {
-                vengo_a_valer_verga.SortNames(Convert.ToInt32(textBox1.Text));
+                dataHandler.SortNames(Convert.ToInt32(textBox1.Text));
                 MessageBox.Show("Nombres sorteados.", "Sortear");
             }
             //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");

@@ -102,7 +102,7 @@
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(67, 19);
             this.button4.TabIndex = 6;
-            this.button4.Text = "Miembros";
+            this.button4.Text = "Guardar";
             this.button4.UseVisualStyleBackColor = true;
             this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
@@ -128,7 +128,7 @@
             // listBox2
             // 
             this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(471, 185);
+            this.listBox2.Location = new System.Drawing.Point(25, 64);
             this.listBox2.Margin = new System.Windows.Forms.Padding(2);
             this.listBox2.Name = "listBox2";
             this.listBox2.Size = new System.Drawing.Size(289, 199);
