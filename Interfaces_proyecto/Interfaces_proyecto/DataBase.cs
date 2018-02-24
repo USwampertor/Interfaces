@@ -9,25 +9,18 @@ namespace Interfaces_proyecto
 {
     class DataBase
     {
+        private List<TeamData> Teams = new List<TeamData>();
         private List<string> NameList = new List<string>();
-        public string UserRoot;
-        private String DataBaseFile = "DataBase.txt";
+        
+        private string DataBaseFile = "DataBase.txt";
         private StreamWriter OutputStream;
         private StreamReader InputStream;
         private int ListSize;
 
-        public void AddData(string NewName)
-        {
-            NameList.Add(NewName);
-        }
-
+       
         public int InputHandler()
         {
-            string FullPath;
-            if (UserRoot.Length != 0)
-                FullPath = (UserRoot + DataBaseFile);
-            else
-                FullPath = DataBaseFile;
+            string FullPath = DataBaseFile;
             if(File.Exists(FullPath))
             {
                 InputStream = new StreamReader(FullPath);
@@ -42,23 +35,29 @@ namespace Interfaces_proyecto
             return 0;
         }
 
-        public void OutputHandler(string newPath)
+        public void OutputHandler(List<string> outputnames)
         {
-            string FullPath;
-            if (newPath.Length != 0)
-                UserRoot = newPath;
-            if (UserRoot.Length != 0)
-                FullPath = (UserRoot + DataBaseFile);
-            else
-                FullPath = DataBaseFile; 
+            
+            string FullPath=DataBaseFile;
+            //if (newPath.Length != 0)
+            //    UserRoot = newPath;
+            //if (UserRoot.Length != 0)
+            //    FullPath = (UserRoot + DataBaseFile);
+            //else
+            //    FullPath = DataBaseFile; 
             OutputStream = new StreamWriter(FullPath);
-            OutputStream.WriteLine(ListSize);
-            for (int DataIndex = 0; DataIndex < ListSize; ++DataIndex)
+            OutputStream.WriteLine(outputnames.Count);
+            for (int DataIndex = 0; DataIndex < outputnames.Count; ++DataIndex)
             {
-                OutputStream.WriteLine("\n");
+                
                 OutputStream.WriteLine(NameList[DataIndex]);
             }
             OutputStream.Close();
+        }
+
+        public List<string> Getdatabasenames()
+        {
+            return NameList;
         }
 
     }
