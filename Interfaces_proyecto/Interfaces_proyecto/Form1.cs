@@ -13,62 +13,49 @@ namespace Interfaces_proyecto
 {
     public partial class Form1 : Form
     {
-        Data vengo_a_valer_verga;
+        Data vengo_a_valer_verga = new Data();
 
         public Form1()
         {
             InitializeComponent();
         }
-
-<<<<<<< HEAD
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Create an instance of the ListBox.
-            ListBox listBox1 = new ListBox();
-            // Set the size and location of the ListBox.
-            listBox1.Size = new System.Drawing.Size(200, 100);
-            listBox1.Location = new System.Drawing.Point(10, 10);
-            // Add the ListBox to the form.
-            this.Controls.Add(listBox1);
-            // Set the ListBox to display items in multiple columns.
-            listBox1.MultiColumn = true;
-            // Set the selection mode to multiple and extended.
-            listBox1.SelectionMode = SelectionMode.MultiExtended;
-
-            // Shutdown the painting of the ListBox as items are added.
-            listBox1.BeginUpdate();
-            // Loop through and add 50 items to the ListBox.
-            for (int x = 1; x <= 50; x++)
-            {
-                listBox1.Items.Add("Item " + x.ToString());
-            }
-            // Allow the ListBox to repaint and display the new items.
-            listBox1.EndUpdate();
-
-            // Select three items from the ListBox.
-            listBox1.SetSelected(1, true);
-            listBox1.SetSelected(3, true);
-            listBox1.SetSelected(5, true);
-
-            // Display the second selected item in the ListBox to the console.
-            System.Diagnostics.Debug.WriteLine(listBox1.SelectedItems[1].ToString());
-            // Display the index of the first selected item in the ListBox.
-            System.Diagnostics.Debug.WriteLine(listBox1.SelectedIndices[0].ToString());
-=======
+            listBox2.Visible = true;
+        }
         private void button1_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Beep.Play();
 
             Color BackColor = Color.Green;
+
+            listBox1.Items.Add(textBox1.Text);
+            MessageBox.Show(textBox1.Text + " agregado.", "Agregar");
+            textBox1.Clear();
+            vengo_a_valer_verga.DataFetch(listBox1);
         }
         private void button2_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Exclamation.Play();
-            
             //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             //simpleSound.Play();
 
             Color BackColor = Color.Red;
+            for (int i=0;i<listBox1.Items.Count;i++)
+            {
+                if(listBox1.Items[i].ToString()==textBox1.Text)
+                {
+                    listBox1.Items.RemoveAt(i);
+                    MessageBox.Show(textBox1.Text + " borrado.");
+                    break;
+                }
+                else
+                {
+                    MessageBox.Show(textBox1.Text + " no se encontro.", "Borrar");
+                }
+            }
+            textBox1.Clear();
+            vengo_a_valer_verga.DataFetch(listBox1);
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -79,7 +66,24 @@ namespace Interfaces_proyecto
         private void button3_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Asterisk.Play();
-
+            if (listBox1.Visible)
+            {
+                listBox2.Visible = true;
+                listBox1.Visible = false;
+                for (int i = 0; i < vengo_a_valer_verga.GetTeams().Count; i++)
+                {
+                    listBox2.Items.Add("Equipo " + (i + 1));
+                    for(int j=0;j<vengo_a_valer_verga.GetTeams()[i].Team.Count;i++)
+                    {
+                        listBox2.Items.Add(vengo_a_valer_verga.GetTeams()[i].Team[j]);
+                    }
+                }
+            }
+            else
+            {
+                listBox1.Visible = true;
+                listBox2.Visible = false;
+            }
             //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             //simpleSound.Play();
 
@@ -96,7 +100,16 @@ namespace Interfaces_proyecto
         private void button5_Click(object sender, EventArgs e)
         {
             System.Media.SystemSounds.Question.Play();
-
+            int j;
+            if (string.IsNullOrEmpty(textBox1.Text) || !Int32.TryParse(textBox1.Text, out j) || listBox1.Items.Count <= 0)
+            {
+                MessageBox.Show("Ingrese un numero en la textbox.", "Sortear");
+            }
+            else
+            {
+                vengo_a_valer_verga.SortNames(Convert.ToInt32(textBox1.Text));
+                MessageBox.Show("Nombres sorteados.", "Sortear");
+            }
             //SoundPlayer simpleSound = new SoundPlayer(@"c:\Windows\Media\chimes.wav");
             //simpleSound.Play();
         }
@@ -104,7 +117,11 @@ namespace Interfaces_proyecto
         private void label1_Click(object sender, EventArgs e)
         {
 
->>>>>>> 479d609a78c31007ad20e6212c3b18c21ca4ff84
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

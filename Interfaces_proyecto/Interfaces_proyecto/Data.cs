@@ -14,6 +14,10 @@ namespace Interfaces_proyecto
 
         public void DataFetch(ListBox nameList)
         {
+            if (names.Count > 0)
+            {
+                names.Clear();
+            }
             for (int i = 0; i < nameList.Items.Count; i++)
             {
                 names.Add(nameList.Items[i].ToString());
@@ -33,6 +37,7 @@ namespace Interfaces_proyecto
                     newTeam.Team.Add(namePool[j]);
                     namePool.RemoveAt(j);
                 }
+                teamList.Add(newTeam);
             }
         }
 

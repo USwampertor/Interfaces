@@ -10,6 +10,6 @@ namespace Interfaces_proyecto
     {
         //Es la clase que dijiste que hiciera que tenga el id y una lista
         int id;
-        public List<string> Team;
+        public List<string> Team = new List<string>();
     }
 }
